@@ -3,9 +3,9 @@ const cors = require('cors');
 var knex = require('knex')({
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
+    host: 'db',
     user: 'root',
-    password: '1234',
+    password: process.env.MYSQL_ROOT_PASSWORD,
     database: 'workshop'
   }
 });
@@ -20,4 +20,4 @@ app.get('/users/:id', (req, res) => {
   });
 });
 
-app.listen(3001, () => console.log('Server is listening on port 3001'));
+app.listen(80, () => console.log('Server is listening on port 80'));
